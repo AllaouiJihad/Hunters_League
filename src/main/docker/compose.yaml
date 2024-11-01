@@ -5,7 +5,7 @@ services:
     image: 'postgres:latest'
     environment:
       - 'POSTGRES_DB=samurai'
-      - 'POSTGRES_PASSWORD=password'
+      - 'POSTGRES_PASSWORD=samurai'
       - 'POSTGRES_USER=samurai'
     volumes:
     - C:\Users\Youcode\Desktop\pgdata:/var/lib/postgresql/data
