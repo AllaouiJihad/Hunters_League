@@ -20,3 +20,11 @@ spring:
     exclude:
       - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
 
+
+  pagination:
+    defaultPageSize: 50
+    defaultPage: 0
+
+
+
+
