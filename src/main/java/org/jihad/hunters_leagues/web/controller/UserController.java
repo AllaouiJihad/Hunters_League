@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api")
 public class UserController {
 
     @Autowired
@@ -66,7 +66,9 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public Page<User> findAll(@RequestParam(name = "page", required = false, defaultValue = "${pagination.defaultPage}") int page, @RequestParam(name = "size", required = false, defaultValue = "${pagination.defaultPageSize}") int size) {
+    public Page<User> findAll(
+            @RequestParam(name = "page", defaultValue = "0") int page,
+            @RequestParam(name = "size", defaultValue = "10") int size) {
         return userService.findAll(page, size);
     }
 
@@ -76,8 +78,8 @@ public class UserController {
             @RequestParam(required = false) String email,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
-        Page<User> users = userService.search(username, email, page, size);
-        return ResponseEntity.ok(users);
+        Page<User> UserSearchResponseVm = userService.search(username, email, page, size);
+        return ResponseEntity.ok(UserSearchResponseVm);
     }
 
 
